@@ -4,7 +4,7 @@ A Chrome extension that will recognize recipes on a page and show nutritional in
 
 To build:
 
-$ yarn
+$ yarn  
 $ npm run build
 
 Then:
@@ -16,10 +16,10 @@ The Chrome Calories extension should now be available in the top right of the sc
 
 Workflow:
 * Make sure you are on your own branch when you are making changes.
-* To see changes you have made,
+* To see changes you have made,  
 $ git status
-* To save those changes to the GitHub copy of your branch,
-$ git add <filename>
-$ git commit -m "message"
+* To save those changes to the GitHub copy of your branch,  
+$ git add <filename>  
+$ git commit -m "message"  
 $ git push origin <your-branch-name>
 * To submit your changes to be added to master, create a pull request and add Hannah or Mitchell as reviewers
