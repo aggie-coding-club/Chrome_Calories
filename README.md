@@ -2,7 +2,7 @@
 
 A Chrome extension that will recognize recipes on a page and show nutritional information for them.
 
-To build:
+### To build:
 
 $ yarn  
 $ npm run build
@@ -14,12 +14,12 @@ Then:
 
 The Chrome Calories extension should now be available in the top right of the screen!
 
-Workflow:
+### Workflow:
 * Make sure you are on your own branch when you are making changes.
 * To see changes you have made,  
 $ git status
 * To save those changes to the GitHub copy of your branch,  
-$ git add <filename>  
+$ git add &lt;filename&gt;
 $ git commit -m "message"  
-$ git push origin <your-branch-name>
-* To submit your changes to be added to master, create a pull request and add Hannah or Mitchell as reviewers
+$ git push origin &lt;your-branch-name&gt;
+* To submit your changes to be added to master, create a pull request and add Hannah and/or Mitchell as reviewers
