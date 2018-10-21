@@ -19,7 +19,7 @@ The Chrome Calories extension should now be available in the top right of the sc
 * To see changes you have made,  
 $ git status
 * To save those changes to the GitHub copy of your branch,  
-$ git add &lt;filename&gt;
+$ git add &lt;filename&gt;  
 $ git commit -m "message"  
 $ git push origin &lt;your-branch-name&gt;
 * To submit your changes to be added to master, create a pull request and add Hannah and/or Mitchell as reviewers
