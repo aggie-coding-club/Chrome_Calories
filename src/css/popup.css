@@ -15,5 +15,5 @@ body {
 
 .output-open.output {
     /*transform: none;*/
-    color: green;
+    display: none;
 }
