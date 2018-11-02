@@ -1,8 +1,13 @@
 import "../css/popup.css";
 import hello from "./popup/example";
 function openOutput() {
+/*
     document.getElementById("output").classList.toggle("output");
+*/
+    var div = document.getElementById("output");
+    div.style.display = div.style.display == "block" ? "none" : "block";
 } //define openOutput to toggle CSS class
+// ^^^ per https://stackoverflow.com/questions/19074171/how-to-toggle-a-divs-visibility-by-using-a-button-click
 document.getElementById("output-button").addEventListener('click', openOutput); //tells button to use openOutput on click
 //----------------------
 var queryString;
@@ -24,7 +29,7 @@ document.getElementById("query-form").addEventListener('submit',function(e) { //
 });
 
 function dispQuery() {
-    document.getElementById("output-paragraph").innerHTML = "Your query was: ${queryString}.";
+    document.getElementById("output-paragraph").innerHTML = "Your query was: " + queryString +".";
 }
 
 
