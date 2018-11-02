@@ -1,10 +1,9 @@
 import "../css/popup.css";
 import hello from "./popup/example";
 function openOutput() {
-    document.getElementById("output").classList.toggle("output-open");
+    document.getElementById("output").classList.toggle("output");
 } //define openOutput to toggle CSS class
 document.getElementById("output-button").addEventListener('click', openOutput); //tells button to use openOutput on click
-//Not toggling [NOTE] [IN PROGRESS]
 //----------------------
 var queryString;
 function saveQuery() {

@@ -12,6 +12,8 @@ body {
     transition: transform 1s;
 }
 
+/*
 .output-open.output {
     transform: none;
 }
+*/
