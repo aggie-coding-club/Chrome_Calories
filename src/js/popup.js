@@ -1,9 +1,9 @@
 import "../css/popup.css";
 import hello from "./popup/example";
 function openOutput() {
-    document.getElementById("output").classList.toggle("output-open");
+    document.getElementById("output").classList.toggle("output");
 } //define openOutput to toggle CSS class
-document.getElementById("output-button").addEventListener('click',output); //tells button to use openOutput on click
+document.getElementById("output-button").addEventListener('click',openOutput); //tells button to use openOutput on click
 //----------------------
 var queryString;
 function saveQuery() {
@@ -24,7 +24,7 @@ document.getElementById("query-form").addEventListener('submit',function(e) { //
 });
 
 function dispQuery() {
-    document.getElementById("output-paragraph").innerHTML = 'Your query was: ${queryString}.';
+    document.getElementById("output-paragraph").innerHTML = "Your query was: ${queryString}.";
 }
 
 
