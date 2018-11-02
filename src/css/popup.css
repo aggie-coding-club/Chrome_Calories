@@ -8,10 +8,12 @@ body {
   }
 
 .output {
-    transform: translateX(-100%);
-    transition: transform 1s;
+    /*transform: translateX(-100%);
+    transition: transform 1s;*/
+    color: red;
 }
 
 .output-open.output {
-    transform: none;
+    /*transform: none;*/
+    color: green;
 }
