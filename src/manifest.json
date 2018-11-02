@@ -8,6 +8,10 @@
     "default_popup": "popup.html",
     "default_icon": "icon-34.png"
   },
+  "incognito": "split",
+  "permissions": [
+    "activeTab"
+  ],
   "icons": {
     "128": "icon-128.png"
   },
