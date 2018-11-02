@@ -6,3 +6,12 @@ body {
   h1, h2 {
     border-bottom: 1px solid;
   }
+
+.output {
+    transform: translateX(-100%);
+    transition: transform 1s;
+}
+
+.output-open.output {
+    transform: none;
+}
