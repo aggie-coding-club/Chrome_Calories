@@ -24,7 +24,7 @@ function getQuery() { //get query from form when submitted and store in local
     saveQuery();
     dispQuery();
 }
-document.getElementById("query-button").addEventListener('submit',function(e) { //On query submit click, retrieve, store, and display the query
+document.getElementById("query-input").addEventListener('submit',function(e) { //On query submit click, retrieve, store, and display the query
     e.preventDefault()
     getQuery();
 });
