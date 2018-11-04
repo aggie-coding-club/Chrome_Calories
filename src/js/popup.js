@@ -22,6 +22,7 @@ function getQuery() { //get query from form when submitted and store in local
         queryString = "Please input a search into the query section!"; //If the var queryString is empty, fill it with this
     }
     saveQuery();
+    displayQuery();
     //dispQuery(); Commented out. Use for displaying the query for test purposes
 }
 document.getElementById("query-form").addEventListener('submit',function(e) { //On query submit click, retrieve, store, and display the query
@@ -34,19 +35,21 @@ function dispQuery() {
 }
 */
 
-var request = new XMLHttpRequest(); //div request-output
-request.open('GET', 'https://api.edamam.com/api/food-database/parser?ingr='+queryString+'&app_id=2f21f66d&app_key=b16d1dd962aa7f5edaef3461a748bd2f');
-//https://api.edamam.com/api/food-database/parser?ingr=3 cups chicken breast&app_id=2f21f66d&app_key=b16d1dd962aa7f5edaef3461a748bd2f
-request.onload = function() {
-    var data = JSON.parse(request.responseText);
-    document.getElementById("request-output").innerHTML = `
-                <div id="container">
-                    <ul>
-                        <li>Text: ${ data.text }</li> 
-                        <li>Interpretation: ${ data.parsed.food.label }</li>
-                        <li>Calories: ${ data.parsed.food.nutrients.ENERC_KCAL }</li>
-                    </ul>
-                </div>
-        `;
+function displayQuery() {
+    var request = new XMLHttpRequest(); //div request-output
+    request.open('GET', 'https://api.edamam.com/api/food-database/parser?ingr='+queryString+'&app_id=2f21f66d&app_key=b16d1dd962aa7f5edaef3461a748bd2f');
+    //https://api.edamam.com/api/food-database/parser?ingr=3 cups chicken breast&app_id=2f21f66d&app_key=b16d1dd962aa7f5edaef3461a748bd2f
+    request.onload = function() {
+        var data = JSON.parse(request.responseText);
+        document.getElementById("request-output").innerHTML = `
+                    <div id="container">
+                        <ul>
+                            <li>Text: ${ data.text }</li> 
+                            <li>Interpretation: ${ data.parsed.food.label }</li>
+                            <li>Calories: ${ data.parsed.food.nutrients.ENERC_KCAL }</li>
+                        </ul>
+                    </div>
+            `;
+    }
+    request.send();
 }
-request.send();
