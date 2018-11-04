@@ -17,14 +17,14 @@ function saveQuery() {
 }
 
 function getQuery() { //get query from form when submitted and store in local
-    queryString = document.getElementById("query-form").value;
+    queryString = document.getElementById("query-input").value;
     if (queryString == null) {
         queryString = "Please input a search into the query section!"; //If the var queryString is empty, fill it with this
     }
     saveQuery();
     dispQuery();
 }
-document.getElementById("query-input").addEventListener('submit',function(e) { //On query submit click, retrieve, store, and display the query
+document.getElementById("query-form").addEventListener('submit',function(e) { //On query submit click, retrieve, store, and display the query
     e.preventDefault()
     getQuery();
 });
