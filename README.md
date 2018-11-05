@@ -19,7 +19,8 @@ The Chrome Calories extension should now be available in the top right of the sc
 ### Workflow:
 * Make sure you are on your own branch when you are making changes. 
 * Do not edit the build folder! Edit the src folder!
-* To see changes you have made,  
+* To test your changes, run $ npm run build
+* To see which files you have changed,  
 $ git status
 * To save those changes to the GitHub copy of your branch,  
 $ git add &lt;filename&gt;  
