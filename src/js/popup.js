@@ -41,10 +41,22 @@ function displayQuery() {
     request.open('GET', 'https://api.edamam.com/api/food-database/parser?ingr='+queryString+'&app_id=2f21f66d&app_key=b16d1dd962aa7f5edaef3461a748bd2f');
     //https://api.edamam.com/api/food-database/parser?ingr=3 cups chicken breast&app_id=2f21f66d&app_key=b16d1dd962aa7f5edaef3461a748bd2f
     request.onload = function() {
-        var data = JSON.parse(request.responseText);
-        document.getElementById("1").innerHTML = "Input text: " + data["text"];// + ", Interpretation: " + data.parsed.food.label + ", Calories: " + data.parsed.food.nutrients.ENERC_KCAL + ".";
-        document.getElementById("2").innerHTML = "Interpretation: " + data["parsed"][0]["food"]["label"];// + ", Interpretation: " + data.parsed.food.label + ", Calories: " + data.parsed.food.nutrients.ENERC_KCAL + ".";
-        document.getElementById("3").innerHTML = "Calories: " + data["parsed"][0]["food"]["nutrients"]["ENERC_KCAL"];// + ", Interpretation: " + data.parsed.food.label + ", Calories: " + data.parsed.food.nutrients.ENERC_KCAL + ".";
+        try {
+            var data = JSON.parse(request.responseText);
+                if (data["parsed"].length < 1 || data["parsed"] == undefined){
+                    throw "cannot find input"
+                }
+            document.getElementById("1").innerHTML = "Input text: " + data["text"];// + ", Interpretation: " + data.parsed.food.label + ", Calories: " + data.parsed.food.nutrients.ENERC_KCAL + ".";
+            document.getElementById("2").innerHTML = "Interpretation: " + data["parsed"][0]["food"]["label"];// + ", Interpretation: " + data.parsed.food.label + ", Calories: " + data.parsed.food.nutrients.ENERC_KCAL + ".";
+            document.getElementById("3").innerHTML = "Calories: " + data["parsed"][0]["food"]["nutrients"]["ENERC_KCAL"];// + ", Interpretation: " + data.parsed.food.label + ", Calories: " + data.parsed.food.nutrients.ENERC_KCAL + ".";
+        }
+        catch(err) {
+            document.getElementById("1").innerHTML = "Input text: " + data["text"];
+            document.getElementById("2").innerHTML = "Interpretation: Error";
+            document.getElementById("3").innerHTML = "Calories: Error";
+        }
     }
     request.send();
 }
+
+
