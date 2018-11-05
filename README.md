@@ -17,7 +17,8 @@ Then:
 The Chrome Calories extension should now be available in the top right of the screen!
 
 ### Workflow:
-* Make sure you are on your own branch when you are making changes.
+* Make sure you are on your own branch when you are making changes. 
+* Do not edit the build folder! Edit the src folder!
 * To see changes you have made,  
 $ git status
 * To save those changes to the GitHub copy of your branch,  
