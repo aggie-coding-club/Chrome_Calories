@@ -38,8 +38,7 @@ function dispQuery() {
 
 function displayQuery() {
     var request = new XMLHttpRequest(); //div request-output
-    request.open('GET', 'https://api.edamam.com/api/food-database/parser?ingr='+queryString+'&app_id=2f21f66d&app_key=b16d1dd962aa7f5edaef3461a748bd2f');
-    //https://api.edamam.com/api/food-database/parser?ingr=3 cups chicken breast&app_id=2f21f66d&app_key=b16d1dd962aa7f5edaef3461a748bd2f
+    request.open('GET', 'https://api.edamam.com/api/food-database/parser?ingr='+queryString+'&app_id=1111f66d&app_key=11111dd962aa7f5edaef3461a748bd2f');
     request.onload = function() {
         try {
             var data = JSON.parse(request.responseText);
