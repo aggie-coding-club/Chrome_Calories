@@ -27,3 +27,4 @@ $ git add &lt;filename&gt;
 $ git commit -m "message"  
 $ git push origin &lt;your-branch-name&gt;
 * To submit your changes to be added to master, create a pull request and add Hannah and/or Mitchell as reviewers
+* Make sure that you do not publicly commit your API key to this repository
