@@ -41,16 +41,9 @@ function displayQuery() {
     //https://api.edamam.com/api/food-database/parser?ingr=3 cups chicken breast&app_id=2f21f66d&app_key=b16d1dd962aa7f5edaef3461a748bd2f
     request.onload = function() {
         var data = JSON.parse(request.responseText);
-        document.getElementById("output-paragraph").innerHTML = "displayQuery works.";
-        document.getElementById("request-output").innerHTML = `
-                    <div id="container">
-                        <ul>
-                            <li>Text: ${ data.text }</li> 
-                            <li>Interpretation: ${ data.parsed.food.label }</li>
-                            <li>Calories: ${ data.parsed.food.nutrients.ENERC_KCAL }</li>
-                        </ul>
-                    </div>
-            `;
+        document.getElementById("1").innerHTML = "Input text: " + data["text"];// + ", Interpretation: " + data.parsed.food.label + ", Calories: " + data.parsed.food.nutrients.ENERC_KCAL + ".";
+        document.getElementById("2").innerHTML = "Interpretation: " + data["parsed"][0]["food"]["label"];// + ", Interpretation: " + data.parsed.food.label + ", Calories: " + data.parsed.food.nutrients.ENERC_KCAL + ".";
+        document.getElementById("3").innerHTML = "Calories: " + data["parsed"][0]["food"]["nutrients"]["ENERC_KCAL"];// + ", Interpretation: " + data.parsed.food.label + ", Calories: " + data.parsed.food.nutrients.ENERC_KCAL + ".";
     }
     request.send();
 }
