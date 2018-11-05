@@ -19,6 +19,6 @@ function getIngredients(url) {
         }
     });
 }
-console.log('function call: ');
-const ingredients = getIngredients('https://www.livewellbakeoften.com/white-cake-recipe/');
-console.log(ingredients);
+// console.log('function call: ');
+// const ingredients = getIngredients('https://www.livewellbakeoften.com/white-cake-recipe/');
+// console.log(ingredients);
