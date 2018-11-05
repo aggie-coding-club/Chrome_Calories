@@ -22,14 +22,15 @@ function getQuery() { //get query from form when submitted and store in local
         queryString = "Please input a search into the query section!"; //If the var queryString is empty, fill it with this
     }
     saveQuery();
-    displayQuery();
+    displayQuery(); //Comment out to use dispQuery()
     //dispQuery(); Commented out. Use for displaying the query for test purposes
 }
 document.getElementById("query-form").addEventListener('submit',function(e) { //On query submit click, retrieve, store, and display the query
     e.preventDefault()
     getQuery();
 });
-/* //This is for displaying the query for test purposes.
+
+/* //This is for displaying the query for test purposes. To use, comment out displayQuery()
 function dispQuery() {
     document.getElementById("output-paragraph").innerHTML = "Your query was: " + queryString + ".";
 }
