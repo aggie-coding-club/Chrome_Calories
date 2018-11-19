@@ -5,20 +5,30 @@ const request = require('request');
 function getIngredients(url) {
     request(url, (error, response, html) => {
         if (!error && response.statusCode == 200) {
-            const ingredientsHeader = cheerio.load(html)('.wprm-recipe-ingredient');
+            const $ = cheerio.load(html);
+            //match all elements potentially containing ingredients
+            const ingredientsTextEls = $('[class*="ngr"]');
             let ingredients = [];
-            ingredientsHeader.each(function(i, el) {
-                ingredients.push($(el).text());
+            ingredientsTextEls.each(function(i, el) {
+                //separate list items if needed
+                if ($(el).is("ul")) {
+                    $(el).find("li").each(function() {
+                        const text = $(this).text().trim();
+                        if (/^[aA0-9]+ *[/0-9a-zA-Z]+/.test(text))
+                            ingredients.push(text);
+                    })
+                }
+                else {
+                    const text = $(el).text().trim();
+                    //ingredient quantities should start with numbers and be followed by text
+                    if (/^[aA0-9]+ *[/0-9a-zA-Z]+/.test(text))
+                        ingredients.push(text);
+                }
             })
-            console.log('inside function: ');
+            ingredients = ingredients.join('\n');
             console.log(ingredients);
             return ingredients;
-            // for (const ingredient in ingredientsHeader.children()) {
-            //     console.log(ingredient.text());
-            // }
         }
     });
 }
-// console.log('function call: ');
-// const ingredients = getIngredients('https://www.livewellbakeoften.com/white-cake-recipe/');
-// console.log(ingredients);
+const ingredients = getIngredients('https://www.tasteofhome.com/recipes/southwestern-casserole/');
