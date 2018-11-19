@@ -49,7 +49,7 @@ document.getElementById("query-form").addEventListener('submit',function(e) { //
 });
 
 //Accesses credentials.js file in order to acquire keys for API's
-//Credentials .js should be created in the same directory as popup.js 
+//credentials .js should be created in the same directory as popup.js 
 //and an object array created which resembles the following format:
 /*
 var Cred = {
