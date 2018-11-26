@@ -15,25 +15,64 @@ document.getElementById("output-button").addEventListener('click', openOutput); 
 //---------------------------------------------------------------------------------------------------------------------------
 
 //[BACKEND]
-var currurl = window.location.href;
+
+//Creating a variable to store the string the user enters on the popup
+var queryString = localStorage.getItem('receivedQuery');
+
+//Creating a function which puts 'queryString' in local storage.
+function saveQuery() {
+    localStorage.setItem('receivedQuery', queryString);
+}
+
+//Creating a larger function which accounts for the case where the user submits an empty input string and calls the API function otherwise
+function getQuery() {
+    queryString = document.getElementById("query-input").value;
+    if (queryString != "")
+    {
+        saveQuery();
+        displayQuery();
+    }
+    else
+    {
+        document.getElementById("0").innerHTML = "PLEASE INPUT A FOOD INTO THE SUBMIT BOX";
+        document.getElementById("1").innerHTML = "Input text: ";
+        document.getElementById("2").innerHTML = "Interpretation:";
+        document.getElementById("3").innerHTML = "Calories:";
+    }
+}
 
 //Specifying the criteria by which 'getQuery()' is called with an EventListener
 //In this case, when someone clicks the class="query-button" button in 'popup.html'
 document.getElementById("query-form").addEventListener('submit',function(e) { //On query submit click, retrieve, store, and display the query
     e.preventDefault()
-    ingred_list = getIngredients(currurl);
-    console.log(ingred_list);
-    populateHTML(ingred_list);
+    getQuery();
 });
 
-add_ul = function(passtext) {
-    var ul = document.getElementById("popuplist");
-    var li = document.createElement(passtext);
-    var children = ul.children.length + 1
-    li.setAttribute("id", "element"+children)
-    li.appendChild(document.createTextNode("Element "+children));
-    ul.appendChild(li)
+//Accesses credentials.js file in order to acquire keys for API's
+//credentials .js should be created in the same directory as popup.js 
+//and an object array created which resembles the following format:
+/*
+var Cred = {
+    //Edamam
+    app_id :"xxxxxxxx",
+    app_key :"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    //Nutritionix
+    x_app_id :"xxxxxxxx",
+    x_app_key :"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    x_remote_user_id : "0"
+};
+exports.getCred = function() {
+    return Cred;
 }
+*/
+//Replace the 'xxxx' values with the correct keys by signing up to use:
+//https://developer.edamam.com/food-database-api
+//https://www.nutritionix.com/business/api
+var instance = require('./credentials.js');
+var Cred = instance.getCred();
+
+//Variable representing the current url
+var currurl = window.location.href;
 
 //Creating a larger function which does several things:
 // * Creates an XMLHttpRequest for use with a 'GET' request to the Edamam API and makes that request
@@ -43,7 +82,7 @@ add_ul = function(passtext) {
 //   - Interprets and displays the JSON data from the Nutritionix API
 // * If the Nutritionix API turns up nothing:
 //   - Displays an error message
-function displayQuery(queryString) {
+function displayQuery() {
     //'GET' Request
     var request = new XMLHttpRequest();
     request.open('GET', 'https://api.edamam.com/api/food-database/parser?ingr='+queryString+'&app_id='+Cred.app_id+'&app_key='+Cred.app_key);
@@ -53,7 +92,9 @@ function displayQuery(queryString) {
             if (data["parsed"].length < 1 || data["parsed"] == undefined){
                 throw "error";
             }
-            add_ul(data["parsed"][0]["food"]["label"]+": "+(data["parsed"][0]["quantity"])*(data["parsed"][0]["food"]["nutrients"]["ENERC_KCAL"])+" calories")
+            document.getElementById("1").innerHTML = "Input text: " + queryString;// + ", Interpretation: " + data.parsed.food.label + ", Calories: " + data.parsed.food.nutrients.ENERC_KCAL + ".";
+            document.getElementById("2").innerHTML = "Interpretation: " + data["parsed"][0]["food"]["label"];// + ", Interpretation: " + data.parsed.food.label + ", Calories: " + data.parsed.food.nutrients.ENERC_KCAL + ".";
+            document.getElementById("3").innerHTML = "Calories: " + (data["parsed"][0]["quantity"])*(data["parsed"][0]["food"]["nutrients"]["ENERC_KCAL"]);// + ", Interpretation: " + data.parsed.food.label + ", Calories: " + data.parsed.food.nutrients.ENERC_KCAL + ".";
         }
         catch(err) 
         {
@@ -80,11 +121,15 @@ function displayQuery(queryString) {
                     }
                     else
                     {
-                        add_ul(returnJSON["foods"][0]["food_name"]+": "+returnJSON["foods"][0]["nf_calories"]+" calories");
+                        document.getElementById("1").innerHTML = "Input text: "+ queryString;// + ", Interpretation: " + data.parsed.food.label + ", Calories: " + data.parsed.food.nutrients.ENERC_KCAL + ".";
+                        document.getElementById("2").innerHTML = "Interpretation: " + returnJSON["foods"][0]["food_name"];// + ", Interpretation: " + data.parsed.food.label + ", Calories: " + data.parsed.food.nutrients.ENERC_KCAL + ".";
+                        document.getElementById("3").innerHTML = "Calories: " + returnJSON["foods"][0]["nf_calories"];// + ", Interpretation: " + data.parsed.food.label + ", Calories: " + data.parsed.food.nutrients.ENERC_KCAL + ".";
                     }
                 }
                 catch(err) {
-                    add_ul("Error: Error");
+                    document.getElementById("1").innerHTML = "Input text: " + queryString;
+                    document.getElementById("2").innerHTML = "Interpretation: Error";
+                    document.getElementById("3").innerHTML = "Calories: Error";
                 }
             }
         }
@@ -92,15 +137,6 @@ function displayQuery(queryString) {
     request.send();
 }
 
-function populateHTML(ingred_list) {
-    try {
-        var count = ingred_list.length;
-        for(var i = 0; i < count; i++) {
-            var item = ingred_list.length[i];
-            displayQuery(item);
-        }
-    }
-    catch(err) {
-        add_ul("populateHTML error")
-    }
-}
+
+
+
