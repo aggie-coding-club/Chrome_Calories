@@ -31,4 +31,4 @@ function getIngredients(url) {
         }
     });
 }
-const ingredients = getIngredients('https://www.tasteofhome.com/recipes/southwestern-casserole/');
+//const ingredients = getIngredients('https://www.tasteofhome.com/recipes/southwestern-casserole/');

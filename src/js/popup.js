@@ -71,6 +71,9 @@ exports.getCred = function() {
 var instance = require('./credentials.js');
 var Cred = instance.getCred();
 
+//Variable representing the current url
+currurl = window.location.href;
+
 //Creating a larger function which does several things:
 // * Creates an XMLHttpRequest for use with a 'GET' request to the Edamam API and makes that request
 // * Interprets and displays the JSON data from the Edamam API
@@ -133,5 +136,7 @@ function displayQuery() {
     }
     request.send();
 }
+
+
 
 
