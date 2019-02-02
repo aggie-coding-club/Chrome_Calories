@@ -8,7 +8,7 @@ function getIngredients(url) {
             const $ = cheerio.load(html);
             //match all elements potentially containing ingredients
             const ingredientsTextEls = $('[class*="ngr"]');
-            let ingredients = [];
+            var ingredients = [];
             ingredientsTextEls.each(function(i, el) {
                 //separate list items if needed
                 if ($(el).is("ul")) {
@@ -31,4 +31,20 @@ function getIngredients(url) {
         }
     });
 }
-//const ingredients = getIngredients('https://www.tasteofhome.com/recipes/southwestern-casserole/');
+ingredients = getIngredients('https://www.tasteofhome.com/recipes/southwestern-casserole/');
+console.log(ingredients[0]);]
+/*
+function loadTileSet(callback) {
+    // ...
+
+    imgTileSet.onload = function () {
+        // instead of return, do this
+        callback(arrTiles);
+    };
+}
+
+loadTileSet(function (arrNew) {
+    // now you can use arrNew
+});
+*/
+//async is the issue here i think??

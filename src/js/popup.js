@@ -13,26 +13,77 @@ function openOutput() {
 //In this case, when someone clicks the id="output-button" button in 'popup.html'.
 document.getElementById("output-button").addEventListener('click', openOutput); //tells button to use openOutput on click
 //---------------------------------------------------------------------------------------------------------------------------
-
 //[BACKEND]
-var currurl = window.location.href;
+//gets ingredients list (array of each ingredient) from a webpage
+//using wprm (wordpress recipe maker)
+const cheerio = require('cheerio');
+const request = require('request');
 
-//Specifying the criteria by which 'getQuery()' is called with an EventListener
-//In this case, when someone clicks the class="query-button" button in 'popup.html'
-document.getElementById("query-form").addEventListener('submit',function(e) { //On query submit click, retrieve, store, and display the query
-    e.preventDefault()
-    ingred_list = getIngredients(currurl);
-    console.log(ingred_list);
-    populateHTML(ingred_list);
-});
+function getIngredients(url) {
+    request(url, (error, response, html) => {
+        if (!error && response.statusCode == 200) {
+            const $ = cheerio.load(html);
+            //match all elements potentially containing ingredients
+            const ingredientsTextEls = $('[class*="ngr"]');
+            ingredients = [];
+            ingredientsTextEls.each(function(i, el) {
+                //separate list items if needed
+                if ($(el).is("ul")) {
+                    $(el).find("li").each(function() {
+                        const text = $(this).text().trim();
+                        if (/^[aA0-9]+ *[/0-9a-zA-Z]+/.test(text))
+                            ingredients.push(text);
+                    })
+                }
+                else {
+                    const text = $(el).text().trim();
+                    //ingredient quantities should start with numbers and be followed by text
+                    if (/^[aA0-9]+ *[/0-9a-zA-Z]+/.test(text))
+                        ingredients.push(text);
+                }
+            })
+            ingredients = ingredients.join('\n');
+            console.log(ingredients);
+            return ingredients;
+        }
+    });
+}
+var currurl = 'https://www.tasteofhome.com/recipes/southwestern-casserole/';
+function submitClick() {
+    try {
+        document.getElementById("0").innerHTML = "Hello"; //Before, when this the getIngredients threw an error, would work. Now it just is blank. The submitClick works presumably
+        const ingred_list = getIngredients(currurl); //It might be an async issue, we'd need callbacks
+        document.getElementById("0").innerHTML = ingred_list[0];
 
-add_ul = function(passtext) {
+    }
+    catch(err) {
+        document.getElementById("0").innerHTML = "Error";
+    }
+    //console.log(ingred_list);
+    //populateHTML(ingred_list);
+}
+document.getElementById("query-button").addEventListener('click',submitClick)
+
+function add_ul(passtext) {
     var ul = document.getElementById("popuplist");
     var li = document.createElement(passtext);
     var children = ul.children.length + 1
     li.setAttribute("id", "element"+children)
     li.appendChild(document.createTextNode("Element "+children));
     ul.appendChild(li)
+}
+
+function populateHTML(ingred_list) {
+    try {
+        var count = ingred_list.length;
+        for(var i = 0; i < count; i++) {
+            var item = ingred_list.length[i];
+            displayQuery(item);
+        }
+    }
+    catch(err) {
+        add_ul("populateHTML error")
+    }
 }
 
 //Creating a larger function which does several things:
@@ -90,17 +141,4 @@ function displayQuery(queryString) {
         }
     }
     request.send();
-}
-
-function populateHTML(ingred_list) {
-    try {
-        var count = ingred_list.length;
-        for(var i = 0; i < count; i++) {
-            var item = ingred_list.length[i];
-            displayQuery(item);
-        }
-    }
-    catch(err) {
-        add_ul("populateHTML error")
-    }
 }
