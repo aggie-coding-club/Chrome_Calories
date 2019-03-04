@@ -6,7 +6,7 @@ A Chrome extension that will recognize recipes on a page and show nutritional in
 
 Make sure you have Node version 8 and the latest version of Yarn.
 
-$ yarn  
+$ npm install  
 $ npm run build
 
 Then:
