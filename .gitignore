@@ -80,4 +80,4 @@ typings/
 # End of https://www.gitignore.io/api/node
 
 # credentials.js (contains API dev id's and keys)
-src/js/credentials.js
+credentials.js
