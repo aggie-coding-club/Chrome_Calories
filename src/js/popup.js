@@ -68,6 +68,7 @@ exports.getCred = function() {
 //Replace the 'xxxx' values with the correct keys by signing up to use:
 //https://developer.edamam.com/food-database-api
 //https://www.nutritionix.com/business/api
+
 var instance = require('./credentials.js');
 var Cred = instance.getCred();
 
