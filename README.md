@@ -23,16 +23,16 @@ $ touch src/js/credentials.js
 This will create a file called credentials.js in the src/js folder. Navigate to it in a text editor and fill it with these contents. This is where you will put the API keys once you have generated them.
 
 var Cred = {  
-    //Edamam  
-    app_id :"xxxxxxxx",  
-    app_key :"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",  
-    //Nutritionix  
-    x_app_id :"xxxxxxxx",  
-    x_app_key :"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",  
-    x_remote_user_id : "0"  
+    &nbsp;&nbsp;&nbsp;&nbsp;//Edamam  
+    &nbsp;&nbsp;&nbsp;&nbsp;app_id :"xxxxxxxx",  
+    &nbsp;&nbsp;&nbsp;&nbsp;app_key :"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",  
+    &nbsp;&nbsp;&nbsp;&nbsp;//Nutritionix  
+    &nbsp;&nbsp;&nbsp;&nbsp;x_app_id :"xxxxxxxx",  
+    &nbsp;&nbsp;&nbsp;&nbsp;x_app_key :"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",  
+    &nbsp;&nbsp;&nbsp;&nbsp;x_remote_user_id : "0"  
 };  
 exports.getCred = function() {  
-    return Cred;  
+    &nbsp;&nbsp;&nbsp;&nbsp;return Cred;  
 }  
 
 Edamam:
