@@ -1,12 +1,26 @@
 body {
     width: 400px;
     padding: 1em;
+    text-align: center;
   }
-  
+
   h1, h2 {
     border-bottom: 1px solid;
   }
-
+  ul{
+    list-style-type: none;
+  }
+  .output{
+    text-align: left;
+    margin: 1px,20%;
+  }
+.edamam{
+  float: right;
+  width: 100px;
+}
+.res{
+  text-align: left;
+}
 .output {
-    display: none;
+    display: block;
 }

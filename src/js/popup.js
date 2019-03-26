@@ -49,7 +49,7 @@ document.getElementById("query-form").addEventListener('submit',function(e) { //
 });
 
 //Accesses credentials.js file in order to acquire keys for API's
-//credentials .js should be created in the same directory as popup.js 
+//credentials .js should be created in the same directory as popup.js
 //and an object array created which resembles the following format:
 /*
 var Cred = {
@@ -94,7 +94,7 @@ function displayQuery() {
             document.getElementById("2").innerHTML = "Interpretation: " + data["parsed"][0]["food"]["label"];// + ", Interpretation: " + data.parsed.food.label + ", Calories: " + data.parsed.food.nutrients.ENERC_KCAL + ".";
             document.getElementById("3").innerHTML = "Calories: " + (data["parsed"][0]["quantity"])*(data["parsed"][0]["food"]["nutrients"]["ENERC_KCAL"]);// + ", Interpretation: " + data.parsed.food.label + ", Calories: " + data.parsed.food.nutrients.ENERC_KCAL + ".";
         }
-        catch(err) 
+        catch(err)
         {
             //'POST' Request
             var request2 = new XMLHttpRequest();
@@ -119,7 +119,7 @@ function displayQuery() {
                     }
                     else
                     {
-                        document.getElementById("1").innerHTML = "Input text: "+ queryString;// + ", Interpretation: " + data.parsed.food.label + ", Calories: " + data.parsed.food.nutrients.ENERC_KCAL + ".";
+                        document.getElementById("1").document.document.getElementsByClassName("res").innerHTML = "Input text: "+ queryString;// + ", Interpretation: " + data.parsed.food.label + ", Calories: " + data.parsed.food.nutrients.ENERC_KCAL + ".";
                         document.getElementById("2").innerHTML = "Interpretation: " + returnJSON["foods"][0]["food_name"];// + ", Interpretation: " + data.parsed.food.label + ", Calories: " + data.parsed.food.nutrients.ENERC_KCAL + ".";
                         document.getElementById("3").innerHTML = "Calories: " + returnJSON["foods"][0]["nf_calories"];// + ", Interpretation: " + data.parsed.food.label + ", Calories: " + data.parsed.food.nutrients.ENERC_KCAL + ".";
                     }
@@ -134,5 +134,3 @@ function displayQuery() {
     }
     request.send();
 }
-
-

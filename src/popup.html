@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href ="css/popup.css" />
   </head>
   <body>
-    <h1>Search for a food!</h1>
+    <h1>Chrome Calories</h1>
     <div class="query" id="query">
       <form class="query-form" id="query-form" action="#">
           <input class="query-input" type="text" id="query-input" placeholder="Type your food here!" autocomplete="off">
@@ -14,22 +14,19 @@
       </form>
     </div>
     <br>
-    <button id="output-button">Click to see output!</button>
+    <!-- <button id="output-button">Click to see output!</button> -->
     <div class="output" id="output">
-      <p id="output-paragraph">The server says...</p>
+      <!-- <p id="output-paragraph">The server says...</p> -->
       <div id="container">
         <ul>
-            <li id= "0"></li>
-            <li id= "1">Text: </li> 
-            <li id = "2">Interpretation: </li>
-            <li id = "3">Calories: </li>
+            <!-- <li id= "0"></li> -->
+            <li id= "1"><span>Text:</span><span class=res></span> </li>
+            <li id = "2"><span>Interpretation:</span><span class=res></span> </li>
+            <li id = "3"><span>Calories:</span><span class=res></span> </li>
         </ul>
       </div>
     </div>
-    <br>
-    <img src="img/transparent.png">
-    <br>
-    <a href="https://www.nutritionix.com/business/api">  Powered by Nutritionix API</a>
+    <a href="https://developer.edamam.com/"> <img src="img/transparent.png" class="edamam"></a>
     <script type="javascript" src="src/js/credentials.js"></script>
     <script type="javascript" src="src/js/popup.js"></script>
   </body>
