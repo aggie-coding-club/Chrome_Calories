@@ -11,7 +11,7 @@ function openOutput() {
 }
 //Specifying the criteria by which 'openOutput()' is called with an EventListener
 //In this case, when someone clicks the id="output-button" button in 'popup.html'.
-document.getElementById("output-button").addEventListener('click', openOutput); //tells button to use openOutput on click
+// document.getElementById("output-button").addEventListener('click', openOutput); //tells button to use openOutput on click
 //---------------------------------------------------------------------------------------------------------------------------
 
 //[BACKEND]
