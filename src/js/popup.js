@@ -1,3 +1,4 @@
+import 'bootstrap/dist/css/bootstrap.min.css'
 import "../css/popup.css";
 import hello from "./popup/example";
 //[FRONTEND]
