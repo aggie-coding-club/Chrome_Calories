@@ -2,7 +2,7 @@ body {
     width: 320px;
     /* padding: 1em; */
     text-align: center;
-    background: #54494B;
+    background: #f1f7ed;
   }
 .heading{
   position: relative;
@@ -11,8 +11,8 @@ body {
   margin-bottom: 20px;
   left: 0;
   top: 0;
-  /* background-image: url("../img/food_sample.jpg"); */
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #54494B 90.62%);
+  background-image: url("../img/food_sample.jpg");
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #f1f7ed 90.62%);
 }
 .output{
   text-align: left;
