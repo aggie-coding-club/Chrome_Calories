@@ -85,17 +85,19 @@ function displayQuery() {
     var request = new XMLHttpRequest();
     request.open('GET', 'https://api.edamam.com/api/nutrition-data?ingr='+queryString+'&app_id='+Cred.app_id+'&app_key='+Cred.app_key);
     request.onload = function() {
-        /*try { */
+        try
+        {
             var data = JSON.parse(request.responseText);
-            /*if (data["parsed"].length < 1 || data["parsed"] == undefined){
+            if (data.length < 1 || data == undefined)
+            {
                 throw "error";
-            } */
+            }
             document.getElementById("1").innerHTML = "Input text: " + queryString;// + ", Interpretation: " + data.parsed.food.label + ", Calories: " + data.parsed.food.nutrients.ENERC_KCAL + ".";
             document.getElementById("2").innerHTML = "Interpretation: " + data.healthLabels;// + ", Interpretation: " + data.parsed.food.label + ", Calories: " + data.parsed.food.nutrients.ENERC_KCAL + ".";
             document.getElementById("3").innerHTML = "Total Calories: " + data.calories;// + ", Interpretation: " + data.parsed.food.label + ", Calories: " + data.parsed.food.nutrients.ENERC_KCAL + ".";
 
-      /*  }
-        catch(err)
+        }
+        /*catch(err)
         {
             //'POST' Request
             var request2 = new XMLHttpRequest();
@@ -124,14 +126,14 @@ function displayQuery() {
                         document.getElementById("2").innerHTML = "Interpretation: " + returnJSON["foods"][0]["food_name"];// + ", Interpretation: " + data.parsed.food.label + ", Calories: " + data.parsed.food.nutrients.ENERC_KCAL + ".";
                         document.getElementById("3").innerHTML = "Calories: " + returnJSON["foods"][0]["nf_calories"];// + ", Interpretation: " + data.parsed.food.label + ", Calories: " + data.parsed.food.nutrients.ENERC_KCAL + ".";
                     }
-                }
+                } */
                 catch(err) {
                     document.getElementById("1").innerHTML = "Input text: " + queryString;
                     document.getElementById("2").innerHTML = "Interpretation: Error";
                     document.getElementById("3").innerHTML = "Calories: Error";
                 }
-            }
-        } */
+            //}
+        //}
     };
     request.send();
 }
