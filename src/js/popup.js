@@ -85,15 +85,16 @@ function displayQuery() {
     var request = new XMLHttpRequest();
     request.open('GET', 'https://api.edamam.com/api/nutrition-data?ingr='+queryString+'&app_id='+Cred.app_id+'&app_key='+Cred.app_key);
     request.onload = function() {
-        try {
+        /*try { */
             var data = JSON.parse(request.responseText);
-            if (data["parsed"].length < 1 || data["parsed"] == undefined){
+            /*if (data["parsed"].length < 1 || data["parsed"] == undefined){
                 throw "error";
-            }
+            } */
             document.getElementById("1").innerHTML = "Input text: " + queryString;// + ", Interpretation: " + data.parsed.food.label + ", Calories: " + data.parsed.food.nutrients.ENERC_KCAL + ".";
-            document.getElementById("2").innerHTML = "Interpretation: " + data["parsed"][0]["food"]["label"];// + ", Interpretation: " + data.parsed.food.label + ", Calories: " + data.parsed.food.nutrients.ENERC_KCAL + ".";
-            document.getElementById("3").innerHTML = "Calories: " + (data["parsed"][0]["quantity"])*(data["parsed"][0]["food"]["nutrients"]["ENERC_KCAL"]);// + ", Interpretation: " + data.parsed.food.label + ", Calories: " + data.parsed.food.nutrients.ENERC_KCAL + ".";
-        }
+            document.getElementById("2").innerHTML = "Interpretation: " + data.healthLabels;// + ", Interpretation: " + data.parsed.food.label + ", Calories: " + data.parsed.food.nutrients.ENERC_KCAL + ".";
+            document.getElementById("3").innerHTML = "Total Calories: " + data.calories;// + ", Interpretation: " + data.parsed.food.label + ", Calories: " + data.parsed.food.nutrients.ENERC_KCAL + ".";
+
+      /*  }
         catch(err)
         {
             //'POST' Request
@@ -130,7 +131,7 @@ function displayQuery() {
                     document.getElementById("3").innerHTML = "Calories: Error";
                 }
             }
-        }
-    }
+        } */
+    };
     request.send();
 }
