@@ -49,7 +49,7 @@ document.getElementById("query-form").addEventListener('submit',function(e) { //
 });
 
 //Accesses credentials.js file in order to acquire keys for API's
-//credentials .js should be created in the same directory as popup.js 
+//credentials .js should be created in the same directory as popup.js
 //and an object array created which resembles the following format:
 /*
 var Cred = {
@@ -83,7 +83,7 @@ var Cred = instance.getCred();
 function displayQuery() {
     //'GET' Request
     var request = new XMLHttpRequest();
-    request.open('GET', 'https://api.edamam.com/api/food-database/parser?ingr='+queryString+'&app_id='+Cred.app_id+'&app_key='+Cred.app_key);
+    request.open('GET', 'https://api.edamam.com/api/nutrition-data?ingr='+queryString+'&app_id='+Cred.app_id+'&app_key='+Cred.app_key);
     request.onload = function() {
         try {
             var data = JSON.parse(request.responseText);
@@ -94,7 +94,7 @@ function displayQuery() {
             document.getElementById("2").innerHTML = "Interpretation: " + data["parsed"][0]["food"]["label"];// + ", Interpretation: " + data.parsed.food.label + ", Calories: " + data.parsed.food.nutrients.ENERC_KCAL + ".";
             document.getElementById("3").innerHTML = "Calories: " + (data["parsed"][0]["quantity"])*(data["parsed"][0]["food"]["nutrients"]["ENERC_KCAL"]);// + ", Interpretation: " + data.parsed.food.label + ", Calories: " + data.parsed.food.nutrients.ENERC_KCAL + ".";
         }
-        catch(err) 
+        catch(err)
         {
             //'POST' Request
             var request2 = new XMLHttpRequest();
@@ -134,5 +134,3 @@ function displayQuery() {
     }
     request.send();
 }
-
-
