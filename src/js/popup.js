@@ -1,7 +1,7 @@
 
 // import 'bootstrap';
 // import 'bootstrap/dist/css/bootstrap.min.css';
-import "./../css/popup.css";
+import "./../css/popup.css";//stylesheet for popup
 import hello from "./popup/example";
 //[FRONTEND]
 
