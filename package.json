@@ -21,12 +21,7 @@
   },
   "dependencies": {
     "ajv": "^6.10.0",
-    "bootstrap": "^4.3.1",
     "cheerio": "^1.0.0-rc.2",
-    "jquery": "^3.3.1",
-    "npm-install-peers": "^1.2.1",
-    "popper": "^1.0.1",
-    "popper.js": "^1.14.7",
     "request": "^2.88.0"
   }
 }
