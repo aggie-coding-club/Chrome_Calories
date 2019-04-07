@@ -1,6 +1,7 @@
 //gets ingredients list (array of each ingredient) from a webpage
 const cheerio = require('cheerio');
 const request = require('request');
+
 async function getIngredients(url) {
     /*try to resolve to a specific domain that runs incorrectly,
     use generic code to resolve ingredients for websites not
