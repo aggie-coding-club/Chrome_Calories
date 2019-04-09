@@ -1,4 +1,5 @@
 import "./../css/popup.css";//stylesheet for popup
+import 'material-design-lite';
 import hello from "./popup/example";
 //[FRONTEND]
 
