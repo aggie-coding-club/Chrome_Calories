@@ -3,18 +3,17 @@ body {
   /* height: 380px; */
   /* padding: 1em; */
   text-align: center;
-  border-radius: 5px;
-  border-color: #18260E;
-  background: -webkit-linear-gradient(-100deg,  #86B864 180px, #F1F7ED 180px);
+  background: #F1F7ED;
   color: #293323;
 }
 .heading{
-position: relative;
-width: 100%;
-height: 120px;
-left: 0;
-top: 0;
-
+  clip-path: polygon(100% 0, 100% 75%, 75% 100%, 0% 75%, 0 0);
+  background: #86B864;
+}
+.title{
+  margin: 0px;
+  padding-top: 24px;
+  padding-bottom: 49px;
 }
 .output{
 text-align: left;
