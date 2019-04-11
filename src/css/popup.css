@@ -1,5 +1,5 @@
 body {
-  width: 320px;
+  width: 330px;
   /* height: 380px; */
   /* padding: 1em; */
   text-align: center;
@@ -15,15 +15,15 @@ body {
   padding-top: 24px;
   padding-bottom: 49px;
 }
-.output{
-text-align: left;
-margin: 1px,20%;
-}
+
 ul{
   list-style-type: none;
   text-align: left;
 }
-
+.mdl-grid{
+  padding:0;
+  text-align: left;
+}
 .edamam{
 float: right;
 width: 100px;
@@ -34,6 +34,10 @@ text-align: left;
 }
 .output {
   display: block;
+}
+.grid-container{
+  display: grid;
+  grid-gap: 50px;
 }
 .mdl-textfield .mdl-button {
 

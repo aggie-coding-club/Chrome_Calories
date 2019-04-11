@@ -16,12 +16,9 @@
           <a href="#tab2" class="mdl-tabs__tab">Search</a>
       </div>
       <div id='tab1' class='mdl-tabs__panel is-active'>
-        
+        <p>In this tab we will display the output for this given recipie</p>
   </div>
   <div id='tab2' class="mdl-tabs__panel">
-
-
-  
       <form action="#" class="query-form" id="query-form">
           <div class="mdl-textfield mdl-js-textfield">
             <input class="query-input mdl-textfield__input" type="text" id="query-input" autocomplete="off">
@@ -29,14 +26,30 @@
             <button type="submit" class="query-button mdl-button mdl-js-button mdl-button--icon"><i class="material-icons">search</i></button>
           </div>
         </form>
-  
-        <div id="container">
+        
+        <p id="search-dialogue"></p>
+        <div class="mdl-grid">
+          <p id="search-read" class="mdl-cell mdl-cell--1-col"></p>
+          <p id= "search-1" class="mdl-cell mdl-cell--3-col"></p>
+        </div>
+        <div class="mdl-grid">
+            <p id="search-interpretation" class="mdl-cell mdl-cell--1-col"></p>
+            <p id = "search-2" class="mdl-cell mdl-cell--3-col"></p>
+        </div>
+        <div class="mdl-grid">
+            <p id="search-calories" class="mdl-cell mdl-cell--1-col"></p>
+            <p id = "search-3" class="mdl-cell mdl-cell--3-col"></p>
+        </div>
+        
+
+
+        <!-- <div id="container">
           <ul>
               <li id= "1"><span>Text:</span><span class=res></span> </li>
               <li id = "2"><span>Interpretation:</span><span class=res></span> </li>
               <li id = "3"><span>Calories:</span><span class=res></span> </li>
           </ul>
-        </div>
+        </div> -->
       <a href="https://developer.edamam.com/"> <img src="img/transparent.png" class="edamam"></a>
   </div>
   </div>
