@@ -91,9 +91,6 @@ function displayQuery() {
             }
             console.log("used edamam");
             frontend.changeSearchOutput(queryString,data["parsed"][0]["food"]["label"],(data["parsed"][0]["quantity"])*(data["parsed"][0]["food"]["nutrients"]["ENERC_KCAL"]));
-            // document.getElementById("search-1").innerHTML = "Input text: " + queryString;// + ", Interpretation: " + data.parsed.food.label + ", Calories: " + data.parsed.food.nutrients.ENERC_KCAL + ".";
-            // document.getElementById("search-2").innerHTML = "Interpretation: " + data["parsed"][0]["food"]["label"];// + ", Interpretation: " + data.parsed.food.label + ", Calories: " + data.parsed.food.nutrients.ENERC_KCAL + ".";
-            // document.getElementById("search-3").innerHTML = "Calories: " + (data["parsed"][0]["quantity"])*(data["parsed"][0]["food"]["nutrients"]["ENERC_KCAL"]);// + ", Interpretation: " + data.parsed.food.label + ", Calories: " + data.parsed.food.nutrients.ENERC_KCAL + ".";
         }
         catch(err)
         {
@@ -120,18 +117,12 @@ function displayQuery() {
                     }
                     else
                     {
-                        console.log("used NutritionX");
+                        console.log("used NutritionX");//diplay results found from NutritionX api
                         frontend.changeSearchOutput(queryString,returnJSON["foods"][0]["food_name"],returnJSON["foods"][0]["nf_calories"]);
-                        // document.getElementById("search-1").document.document.getElementsByClassName("res").innerHTML = queryString;// + ", Interpretation: " + data.parsed.food.label + ", Calories: " + data.parsed.food.nutrients.ENERC_KCAL + ".";
-                        // document.getElementById("search-2").innerHTML = "Interpretation: " + returnJSON["foods"][0]["food_name"];// + ", Interpretation: " + data.parsed.food.label + ", Calories: " + data.parsed.food.nutrients.ENERC_KCAL + ".";
-                        // document.getElementById("search-3").innerHTML = "Calories: " + returnJSON["foods"][0]["nf_calories"];// + ", Interpretation: " + data.parsed.food.label + ", Calories: " + data.parsed.food.nutrients.ENERC_KCAL + ".";
                     }
                 }
                 catch(err) {
-                    frontend.changeSearchOutput(queryString,"Could not find"+queryString,"Error");
-                    // document.getElementById("search-1").innerHTML =  queryString;
-                    // document.getElementById("search-2").innerHTML = "Interpretation: Error";
-                    // document.getElementById("search-3").innerHTML = "Calories: Error";
+                    frontend.inputNotFound(queryString);//diplay that nothing was found from either api
                 }
             }
         }
