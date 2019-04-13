@@ -27,5 +27,5 @@ exports.changeSearchOutput=function(input,interpretation,calorieCount){
 exports.inputNotFound =function(input){
     //api comes back with no results
     clearSearchOutput();
-    document.getElementById("search-dialogue").innerHTML='We can\'t seem to find "';
+    document.getElementById("search-dialogue").innerHTML='hmm we can\'t seem to find "'+input+'"';
 }

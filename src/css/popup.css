@@ -8,10 +8,12 @@ body {
   color: #293323;
 }
 .heading{
+  
   clip-path: polygon(100% 0, 100% 75%, 75% 100%, 0% 75%, 0 0);
   background: #86B864;
 }
 .title{
+  font-family: 'Ubuntu', sans-serif;
   margin: 0px;
   padding-top: 24px;
   padding-bottom: 49px;
