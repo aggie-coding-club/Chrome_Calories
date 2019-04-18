@@ -1,6 +1,6 @@
 body {
-  width: 330px;
-  height:100%;
+  width: 350px;
+  height:300px;
   /* height: 380px; */
   /* padding: 1em; */
   text-align: center;
@@ -12,6 +12,10 @@ body {
   clip-path: polygon(100% 0, 100% 75%, 75% 100%, 0% 75%, 0 0);
   background: #86B864;
 }
+.tab-content{
+  padding: 20px;
+}
+
 .title{
   font-family: 'Ubuntu', sans-serif;
   margin: 0px;
@@ -28,8 +32,10 @@ ul{
   text-align: left;
 }
 .edamam{
-float: right;
-width: 100px;
+  position: absolute;
+  bottom: 0;
+  right:0; 
+  width: 120px;
 }
 
 .res{
@@ -45,4 +51,8 @@ text-align: left;
 .mdl-textfield .mdl-button {
 
 right: 0%;
+}
+
+#search-output{
+  display:none;
 }
