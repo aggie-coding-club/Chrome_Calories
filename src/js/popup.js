@@ -1,5 +1,5 @@
 import "./../css/popup.css";//stylesheet for popup
-import 'material-design-lite';
+var material-design-lite = require('material-design-lite');
 import hello from "./popup/example";
 const frontend = require('./frontend.js');
 //[FRONTEND]
