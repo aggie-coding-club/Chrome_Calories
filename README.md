@@ -36,7 +36,7 @@ exports.getCred = function() {
 }  
 
 Edamam:
-* Navigate to https://developer.edamam.com/food-database-api and click the orange Start Now button under the Developer tier. 
+* Navigate to https://developer.edamam.com/edamam-nutrition-api and click the orange Start Now button under the Developer tier. 
 * Once you have created an account, log in and click the "Get an API key now!" choice on the gray menu.
 * Click the "View" button.
 * You should see your Application ID and Application Keys. Open the credentials.js file. Remove each string of Xs under Edamam and copy the ID and key into those spaces.
@@ -44,11 +44,11 @@ Edamam:
 Nutritionix:
 * Navigate to https://www.nutritionix.com/business/api and scroll down to the API Pricing Plans part of the page. Click the green "Get your API Key" button underneath the Hacker tier.
 * Create an account. You may have to wait a few minutes while Nutritionix verifies your email.
-* Click the menu choice "View API Keys". 
+* Click the menu choice "View API Keys".
 * You should see your Application ID and Application Keys. Open the credentials.js file. Remove each string of Xs under Nutritionix and copy the ID and key into those spaces.
 
 ### Workflow:
-* Make sure you are on your own branch when you are making changes. 
+* Make sure you are on your own branch when you are making changes.
 * Do not edit the build folder! Edit the src folder!
 * To test your changes, run $ npm run build
 * To see which files you have changed,  
