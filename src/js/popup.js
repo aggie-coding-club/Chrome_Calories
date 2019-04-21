@@ -90,7 +90,7 @@ function displayQuery() {
                 throw "error";
             }
             console.log("used edamam");
-            frontend.changeSearchOutput(queryString,data["parsed"][0]["food"]["label"],(data["parsed"][0]["quantity"])*(data["parsed"][0]["food"]["nutrients"]["ENERC_KCAL"]));
+            frontend.changeSearchOutput(queryString,data.healthLabels,data.calories);
         }
         catch(err)
         {
