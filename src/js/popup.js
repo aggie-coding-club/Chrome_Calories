@@ -82,7 +82,7 @@ var Cred = instance.getCred();
 function displayQuery() {
     //'GET' Request
     var request = new XMLHttpRequest();
-    request.open('GET', 'https://api.edamam.com/api/food-database/parser?ingr='+queryString+'&app_id='+Cred.app_id+'&app_key='+Cred.app_key);
+    request.open('GET', 'https://api.edamam.com/api/nutrition-data?ingr='+queryString+'&app_id='+Cred.app_id+'&app_key='+Cred.app_key);
     request.onload = function() {
         try {
             var data = JSON.parse(request.responseText);
