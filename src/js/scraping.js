@@ -1,27 +1,27 @@
 //gets ingredients list (array of each ingredient) from a webpage
+// if you can get popup to require this file and not have errors it should all work
+//I have already tried copying and pasting the whole file over and I still got an error from trying to require cheerio or request.
+//its odd because if scraping.js is run as its own script it requires and runs just fine.
 const cheerio = require('cheerio');
 const request = require('request');
-
-async function getIngredients(url) {
-    /*try to resolve to a specific domain that runs incorrectly,
-    use generic code to resolve ingredients for websites not
-    accounted for*/
-    var ingredients;
-    if (url.indexOf("allrecipes.com") != -1)
-        ingredients = await getFromAllRecipes(url);
-    else if (url.indexOf("geniuskitchen.com") != -1)
-        ingredients = await getFromGeniusKitchen(url);
-    else if (url.indexOf("bettycrocker.com") != -1)
-        ingredients = await getFromBettyCrocker(url);
-    else
-    ingredients = await getFromGenericURL(url);
-    return ingredients;
-}
 
 async function printIngredientsToConsole(url) {
     //print for debugging
     const ingredients = await getIngredients(url);
     console.log(ingredients);
+}
+
+async function getIngredients(url) {
+        var ingredients;
+        if (url.indexOf("allrecipes.com") != -1)
+            ingredients = await getFromAllRecipes(url);
+        else if (url.indexOf("geniuskitchen.com") != -1)
+            ingredients = await getFromGeniusKitchen(url);
+        else if (url.indexOf("bettycrocker.com") != -1)
+            ingredients = await getFromBettyCrocker(url);
+        else
+        ingredients = await getFromGenericURL(url);
+        return ingredients;
 }
 
 async function getFromGenericURL(url) {

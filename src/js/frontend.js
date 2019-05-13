@@ -32,3 +32,15 @@ exports.inputNotFound =function(input){
     document.getElementById("search-dialogue").innerHTML='hmm we can\'t seem to find "'+input+'"';
     document.getElementById("search-output").style.display='block';
 }
+exports.credentialsNotFound = function(){
+    //if credentials.js doesn't exist
+    clearSearchOutput();
+    document.getElementById("search-dialogue").innerHTML='We couldn\'t seem to find your credentials file';
+    document.getElementById("search-output").style.display='block';
+}
+exports.requestFailed = function(){
+    //if requst fails
+    clearSearchOutput();
+    document.getElementById("search-dialogue").innerHTML ='Uh oh. Request failed';
+    document.getElementById("search-output").style.display='block';
+}
